@@ -13,9 +13,15 @@ if (process.env.NODE_ENV === 'release') {
 	release = true;
 } else {
 	release = false;
-	const branch = gitRev.branch();
-	const rev = gitRev.short();
-	version += '+' + branch + '.' + rev;
+	
+	try {
+		const branch = gitRev.branch();
+		const rev = gitRev.short();
+		version += '+' + branch + '.' + rev;
+	}
+	catch (e) {
+		version += '+unknown';
+	}
 }
 
 const banner = `/* @preserve
