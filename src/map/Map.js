@@ -558,12 +558,12 @@ export var Map = Evented.extend({
 	invalidateSize: function (options) {
 		if (!this._loaded) { return this; }
 
-		var source = options.source || 'imperative';
-
 		options = Util.extend({
 			animate: false,
 			pan: true
 		}, options === true ? {animate: true} : options);
+
+		var source = options.source || 'imperative';
 
 		var oldSize = this.getSize();
 		this._sizeChanged = true;
