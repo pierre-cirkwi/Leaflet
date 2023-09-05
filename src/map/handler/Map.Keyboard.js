@@ -157,13 +157,13 @@ export var Keyboard = Handler.extend({
 
 				if (map.options.worldCopyJump) {
 					var newLatLng = map.wrapLatLng(map.unproject(map.project(map.getCenter()).add(offset)));
-					map.panTo(newLatLng);
+					map.panTo(newLatLng, {source: 'user.keyboard'});
 				} else {
-					map.panBy(offset);
+					map.panBy(offset, {source: 'user.keyboard'});
 				}
 			}
 		} else if (key in this._zoomKeys) {
-			map.setZoom(map.getZoom() + (e.shiftKey ? 3 : 1) * this._zoomKeys[key]);
+			map.setZoom(map.getZoom() + (e.shiftKey ? 3 : 1) * this._zoomKeys[key], {source: 'user.keyboard'});
 
 		} else if (key === 27 && map._popup && map._popup.options.closeOnEscapeKey) {
 			map.closePopup();

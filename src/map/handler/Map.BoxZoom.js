@@ -133,7 +133,7 @@ export var BoxZoom = Handler.extend({
 		        this._map.containerPointToLatLng(this._point));
 
 		this._map
-			.fitBounds(bounds)
+			.fitBounds(bounds, {source: 'user.boxzoom'})
 			.fire('boxzoomend', {boxZoomBounds: bounds});
 	},
 
