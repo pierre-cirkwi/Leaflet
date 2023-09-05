@@ -8,8 +8,20 @@ import {createBanner} from './banner';
 
 const release = process.env.NODE_ENV === 'release';
 const watch = process.argv.indexOf('-w') > -1 || process.argv.indexOf('--watch') > -1;
+
+let {version} = pkg;
+
 // Skip the git branch+rev in the banner when doing a release build
-const version = release ? pkg.version : `${pkg.version}+${gitRev.branch()}.${gitRev.short()}`;
+if (!release) {
+	try {
+		const branch = gitRev.branch();
+		const rev = gitRev.short();
+		version += '+' + branch + '.' + rev;
+	} catch (e) {
+		version += '+unknown';
+	}
+}
+
 const banner = createBanner(version);
 
 const outro = `var oldL = window.L;
