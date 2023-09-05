@@ -211,6 +211,7 @@ export var Map = Evented.extend({
 	// @method setZoom(zoom: Number, options?: Zoom/pan options): this
 	// Sets the zoom of the map.
 	setZoom: function (zoom, options) {
+		options = options || {};
 		if (!this._loaded) {
 			this._zoom = zoom;
 			return this;
@@ -239,6 +240,7 @@ export var Map = Evented.extend({
 	// @method setZoomAround(offset: Point, zoom: Number, options: Zoom options): this
 	// Zooms the map while keeping a specified pixel on the map (relative to the top-left corner) stationary.
 	setZoomAround: function (latlng, zoom, options) {
+		options = options || {};
 		var scale = this.getZoomScale(zoom),
 		    viewHalf = this.getSize().divideBy(2),
 		    containerPoint = latlng instanceof Point ? latlng : this.latLngToContainerPoint(latlng),
@@ -305,6 +307,7 @@ export var Map = Evented.extend({
 	// @method panTo(latlng: LatLng, options?: Pan options): this
 	// Pans the map to a given center.
 	panTo: function (center, options) { // (LatLng)
+		options = options || {};
 		return this.setView(center, this._zoom, {pan: options, source: options.source});
 	},
 
