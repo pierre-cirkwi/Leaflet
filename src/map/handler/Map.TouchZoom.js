@@ -46,9 +46,7 @@ export var TouchZoom = Handler.extend({
 
 		this._centerPoint = map.getSize()._divideBy(2);
 		this._startLatLng = map.containerPointToLatLng(this._centerPoint);
-		if (map.options.touchZoom !== 'center') {
-			this._pinchStartLatLng = map.containerPointToLatLng(p1.add(p2)._divideBy(2));
-		}
+		this._pinchStartLatLng = map.containerPointToLatLng(p1.add(p2)._divideBy(2));
 
 		this._startDist = p1.distanceTo(p2);
 		this._startZoom = map.getZoom();
