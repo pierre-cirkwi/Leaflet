@@ -8,7 +8,7 @@
     "@rollup/plugin-json": "^6.0.0",
     "bundlemon": "^2.0.0",
     "eslint": "^8.23.1",
-    "eslint-config-mourner": "^3.0.0",
+    "eslint-config-mourner": "^5.0.2",
     "eslint-plugin-import": "^2.27.5",
     "http-server": "^14.1.1",
     "husky": "^8.0.1",
