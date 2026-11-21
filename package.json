@@ -7,7 +7,7 @@
     "@mapbox/eslint-plugin-script-tags": "^1.0.0",
     "@rollup/plugin-json": "^6.0.0",
     "bundlemon": "^2.0.0",
-    "eslint": "^8.23.1",
+    "eslint": "^10.15.0",
     "eslint-config-mourner": "^3.0.0",
     "eslint-plugin-import": "^2.27.5",
     "http-server": "^14.1.1",
